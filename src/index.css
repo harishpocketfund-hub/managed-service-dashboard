@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Wishly exact palette from screenshot */
+  --bg:            #0c0806;
+  --bg2:           #110a05;
+  --card:          #181008;
+  --card2:         #201508;
+  --card-hover:    #251a0a;
+  --border:        rgba(232,93,26,0.14);
+  --border-strong: rgba(232,93,26,0.30);
+  --orange:        #e85d1a;   /* Wishly primary CTA orange */
+  --orange-light:  #f07030;
+  --amber:         #f0b429;   /* Wishly golden "Tell them daily" */
+  --brown:         #b34a0a;
+  --brown-deep:    #8b3a08;
+  --green:         #10b981;
+  --cyan:          #06b6d4;
+  --purple:        #8b5cf6;
+  --red:           #ef4444;
+  --text:          #fef3c7;
+  --text-muted:    #c8790a;
+  --text-dim:      #8a5a0a;
+  --text-faint:    #5a3a08;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root { min-height: 100vh; width: 100%; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(232,93,26,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+
+/* Card */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.card:hover { border-color: var(--border-strong); box-shadow: 0 4px 24px rgba(232,93,26,0.07); }
+
+/* Glow */
+.glow-orange { box-shadow: 0 0 24px rgba(232,93,26,0.22); }
+
+/* Gradient text — Wishly golden */
+.text-gradient {
+  background: linear-gradient(135deg, #e85d1a 0%, #f0b429 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* AI dot */
+.ai-dot {
+  width: 7px; height: 7px;
+  background: var(--orange);
+  border-radius: 50%;
+  animation: pulseDot 2s infinite;
+  flex-shrink: 0;
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.75); }
+}
+
+/* Metric */
+.metric-val {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+/* Tab */
+.tab-active {
+  background: linear-gradient(135deg, rgba(232,93,26,0.18), rgba(179,74,10,0.12));
+  border-bottom: 2px solid var(--orange);
+  color: var(--amber);
+}
+
+/* Section label */
+.section-label {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brown);
+}
+
+/* Priority severity */
+.sev-high   { color: #f87171; background: rgba(239,68,68,0.12); }
+.sev-medium { color: #f0b429; background: rgba(240,180,41,0.12); }
+.sev-low    { color: #34d399; background: rgba(16,185,129,0.12); }
+
+/* Heatmap */
+.heat-cell { border-radius: 3px; transition: opacity 0.15s; }
+.heat-cell:hover { opacity: 0.75; }
+
+/* Virality card types */
+.virality-high { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(5,150,105,0.06)); border: 1px solid rgba(16,185,129,0.25); }
+.virality-med  { background: linear-gradient(135deg, rgba(232,93,26,0.1),  rgba(179,74,10,0.06));  border: 1px solid rgba(232,93,26,0.2); }
+
+/* Animate in */
+.animate-in { animation: slideUp 0.32s ease-out both; }
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Chart tooltip */
+.custom-tooltip {
+  background: #201508;
+  border: 1px solid rgba(232,93,26,0.28);
+  border-radius: 9px;
+  padding: 10px 14px;
+  font-size: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+/* Instagram embed card */
+.ig-card {
+  background: #1a1108;
+  border: 1px solid rgba(232,93,26,0.18);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.ig-card:hover { border-color: rgba(232,93,26,0.35); box-shadow: 0 4px 20px rgba(232,93,26,0.1); }
+
+/* YouTube embed */
+.yt-embed {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(232,93,26,0.2);
+}
+.yt-embed iframe { width: 100%; height: 100%; border: none; }
+
+/* Wishly button */
+.btn-wishly {
+  background: linear-gradient(135deg, #e85d1a, #c04a12);
+  color: white;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-wishly:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* Instagram gradient border */
+.ig-gradient-border {
+  background: linear-gradient(#181008, #181008) padding-box,
+              linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) border-box;
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+}
