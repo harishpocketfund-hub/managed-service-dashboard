@@ -21,7 +21,7 @@ const tabs = [
 ]
 
 export default function App() {
-  const [restaurant, setRestaurant] = useState<RestaurantId>('ishtaa')
+  const [restaurant, setRestaurant] = useState<RestaurantId>('just_biryani')
   const [activeTab, setActiveTab] = useState('ai')
   const tabScrollRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)

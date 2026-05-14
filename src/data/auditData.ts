@@ -1,4 +1,4 @@
-﻿export type RestaurantId = 'ishtaa' | 'aaha'
+﻿export type RestaurantId = 'ishtaa' | 'aaha' | 'just_biryani'
 
 export const auditData = {
   ishtaa: {
@@ -332,6 +332,173 @@ export const auditData = {
       { metric: 'Profile Visits / Month', current: '420', thirtyDays: '900–1,200', ninetyDays: '2,800–4,000' },
       { metric: 'Est. New Customers', current: 'Baseline', thirtyDays: '+60–90/mo', ninetyDays: '+180–260/mo' },
       { metric: 'Revenue Impact', current: 'Baseline', thirtyDays: '+₹35K–55K', ninetyDays: '+₹80K–1.4L' },
+    ],
+  },
+
+  just_biryani: {
+    handle: '@just_biryanis',
+    name: 'Just Biryani',
+    auditDate: 'May 2026',
+    profileScore: 11,
+    scoreBreakdown: [
+      { label: 'Content Quality', score: 6, max: 100 },
+      { label: 'Posting Consistency', score: 2, max: 100 },
+      { label: 'Engagement Rate', score: 8, max: 100 },
+      { label: 'Hashtag Strategy', score: 0, max: 100 },
+      { label: 'Story Usage', score: 0, max: 100 },
+      { label: 'Profile Optimisation', score: 22, max: 100 },
+    ],
+    algorithmSignals: [
+      { signal: 'Sends per Reach', status: 'Dead', score: 0, benchmark: 40, description: 'Zero content = zero DM shares. Account is completely invisible to the Instagram algorithm — Explore will never show it.', color: '#ef4444' },
+      { signal: 'Saves Rate', status: 'Dead', score: 0, benchmark: 60, description: 'No save-worthy content exists. Zero save signals = zero algorithmic distribution of any kind.', color: '#ef4444' },
+      { signal: 'Comments', status: 'Critical', score: 1, benchmark: 65, description: 'Only 2 total comments across 2 posts in 5+ months. Algorithm has completely abandoned this account.', color: '#ef4444' },
+      { signal: 'Watch Time (Reels)', status: 'Critical', score: 2, benchmark: 55, description: 'Both reels show a road outside the restaurant — audience skips in under 3 seconds. No food = no watch time.', color: '#ef4444' },
+      { signal: 'Shares to Stories', status: 'Dead', score: 0, benchmark: 50, description: 'Zero shares. The content has zero shareability. The audience does not even know this account exists.', color: '#ef4444' },
+      { signal: 'Recency Score', status: 'Critical', score: 4, benchmark: 70, description: 'Last post December 2025 — 5+ months of silence. Algorithm has fully downranked and deprioritised this account.', color: '#ef4444' },
+    ],
+    postingWindows: [
+      { time: '12:00 PM – 2:00 PM', days: 'Mon–Fri', audience: 'IT professionals & office workers — DLF Cyber City, Cyber Towers, Raheja Mindspace', priority: 'High', reason: 'Lunch decision window — this audience decides where to eat RIGHT NOW while scrolling. This is when Just Biryani must appear in their feed.' },
+      { time: '7:00 PM – 9:30 PM', days: 'All days', audience: 'Dinner planners, local families, couples, evening scrollers', priority: 'High', reason: 'Dinner planning scroll — people actively looking for what to order or where to go for the evening.' },
+      { time: '9:30 AM – 11:30 AM', days: 'Mon–Fri', audience: 'Pre-lunch planners, office group chats deciding where to go', priority: 'Medium', reason: 'Pre-lunch decision window — office groups decide lunch 1–2 hours before. Be in their feed before noon.' },
+    ],
+    audience: {
+      primary: {
+        segment: 'IT Professionals & Office Workers',
+        age: '22–35',
+        location: 'DLF Cyber City, Cyber Towers, Raheja Mindspace — Gachibowli (1–2 km radius)',
+        behavior: 'Decides lunch 30–60 min before eating, scrolls Instagram & Zomato, eats in groups of 3–6 people',
+        motivation: 'Affordable, filling, non-veg lunch under ₹200 that doesn\'t require planning ahead',
+      },
+      secondary: {
+        segment: 'Local Residents & Families',
+        age: '28–45',
+        location: 'Sri Shyam Nagar, Telecom Nagar Extension, DLF area',
+        behavior: 'Weekend dinners, takeaway orders, looking for authentic regional cuisine nearby',
+        motivation: 'Authentic Godavari taste they cannot easily find elsewhere in Hyderabad',
+      },
+      saves: [
+        'Menu price lists saved to share in office WhatsApp groups',
+        '"How to find us at DLF Gate 4" location posts',
+        'Biryani combo value posts ("₹149 full plate + raita + salan")',
+        'Behind-the-scenes: fresh masala grinding, morning biryani prep',
+      ],
+      shares: [
+        '"Tag someone who needs this biryani" posts (office WhatsApp groups)',
+        '"Office lunch sorted" relatable content for IT crowd',
+        'Game-day biryani posts during IPL — shared in match watching groups',
+        '"Godavari vs Hyderabadi" debate posts (people tag friends to argue)',
+      ],
+    },
+    contentAudit: {
+      grade: 'F',
+      gradeColor: '#ef4444',
+      wins: [
+        'Restaurant is established and operational — strong foundation to build on',
+        'Godavari style positioning is genuinely unique — no competitor owns this in Gachibowli',
+        'Price point under ₹200 is a powerful selling point for the IT crowd',
+        'DLF Gate 4 location has natural high footfall — discovery just needs to happen online',
+      ],
+      missing: [
+        { item: 'No food content whatsoever — both posts show a road', impact: '100% of Instagram food discovery potential unrealised' },
+        { item: 'Bio is an address listing with no personality or CTA', impact: 'Profile visitors have no reason to follow or act' },
+        { item: 'No captions on either post', impact: 'Algorithm has no idea what this account is about' },
+        { item: 'Zero hashtags on any post', impact: 'Completely undiscoverable outside 16 existing followers' },
+        { item: 'Google Business shows "Temporarily Closed"', impact: 'Every Google search leads customers to competitors before they reach Instagram' },
+        { item: 'No stories, no highlights, no pinned posts', impact: 'Profile has no structure — first impressions are fatal' },
+      ],
+    },
+    hashtagStrategy: {
+      note: 'Current hashtags: ZERO. Starting from scratch — first batch establishes local + category discovery immediately from Day 1.',
+      tiers: [
+        {
+          tier: 'Broad (100K–5M)',
+          purpose: 'Mass food discovery nationwide',
+          tags: ['#Biryani', '#BiryaniLovers', '#IndianFood', '#NonVegFood'],
+          color: '#e85d1a',
+        },
+        {
+          tier: 'Niche (10K–100K)',
+          purpose: 'Biryani-specific community',
+          tags: ['#GodavariBiryani', '#BiryaniOfHyderabad', '#DumBiryani', '#BiryaniAddict'],
+          color: '#f0b429',
+        },
+        {
+          tier: 'Local (1K–20K)',
+          purpose: 'Gachibowli & Hyderabad discovery',
+          tags: ['#GachibowliFood', '#HydBiryani', '#DLFCyberCity', '#GachibowliEats'],
+          color: '#b34a0a',
+        },
+        {
+          tier: 'Brand',
+          purpose: 'Own the "Just Biryani" search',
+          tags: ['#JustBiryani', '#JustBiryaniHyd', '#GodavariBiryaniGachibowli'],
+          color: '#8a5a0a',
+        },
+      ],
+    },
+    roadmap: [
+      {
+        week: 1,
+        title: 'Emergency Revival',
+        theme: 'Go from ghost account to visible brand',
+        tasks: [
+          'Fix Google Business — remove "Temporarily Closed" status immediately (2 mins)',
+          'Rewrite bio: personality, emoji, opening hours, phone CTA',
+          'Post IPL Game-Day Biryani Reel TODAY — account relaunch tied to Qualifier 1',
+          'Film + post "5 Best Dishes" menu carousel and pin to profile',
+        ],
+        kpi: 'Goal: Profile looks credible. 50+ new followers by end of week.',
+      },
+      {
+        week: 2,
+        title: 'Brand Foundation',
+        theme: 'Build the identity people remember',
+        tasks: [
+          'Post "Who We Are" brand story carousel — pin alongside menu',
+          'WishlyAI films professional biryani ASMR reel (dum lift, close-up grains)',
+          'Add 10+ hashtags to every post from approved list — no exceptions',
+          'Post Office Lunch relatability content Monday at exactly 12pm',
+        ],
+        kpi: 'Goal: 150+ followers, 5+ saves per post average',
+      },
+      {
+        week: 3,
+        title: 'Audience Capture',
+        theme: 'Own the Gachibowli IT lunch crowd',
+        tasks: [
+          'Run "Tag your office biryani buddy" campaign every Monday',
+          'Set up Swiggy / Zomato listing and pin ordering link in bio',
+          'Post "Godavari vs Hyderabadi biryani" debate post — drive comments',
+          'Reach out to 2 local Gachibowli food creators for a visit',
+        ],
+        kpi: 'Goal: 400+ followers, 3,000+ monthly reach',
+      },
+      {
+        week: 4,
+        title: 'IPL Final Push',
+        theme: 'Make IPL the growth engine',
+        tasks: [
+          'Post IPL Final content (Jun 5) — biggest game-day biryani campaign of the year',
+          'Reshare every tagged story and customer post — build social proof',
+          'Launch "Lunch Combo of the Week" as a recurring series',
+          'Review analytics — double down on the best-performing format',
+        ],
+        kpi: 'Goal: 800+ followers, 8,000+ monthly reach',
+      },
+    ],
+    roiStats: [
+      { stat: '68%', label: 'of people search for a restaurant online before their very first visit' },
+      { stat: '0 of 16', label: 'current followers can find Just Biryani via any Instagram search right now' },
+      { stat: '48%', label: 'YoY increase in "biryani Gachibowli" searches — untapped demand sitting right there' },
+      { stat: '₹10K+', label: 'estimated new monthly revenue from 50 new customers at ₹200 avg ticket' },
+    ],
+    projection: [
+      { metric: 'Followers', current: '16', thirtyDays: '400–700', ninetyDays: '2,000–4,000' },
+      { metric: 'Avg Reach per Post', current: '~80', thirtyDays: '2,000–4,000', ninetyDays: '8,000–15,000' },
+      { metric: 'Engagement Rate', current: '0%', thirtyDays: '4.0–6.0%', ninetyDays: '5.0–8.0%' },
+      { metric: 'Profile Visits / Month', current: '~0', thirtyDays: '200–400', ninetyDays: '1,500–3,000' },
+      { metric: 'Est. New Customers', current: 'Baseline', thirtyDays: '+40–80/mo', ninetyDays: '+150–250/mo' },
+      { metric: 'Revenue Impact', current: 'Baseline', thirtyDays: '+₹8K–16K', ninetyDays: '+₹30K–50K' },
     ],
   },
 }

@@ -1,5 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Cell, ResponsiveContainer } from 'recharts'
-import { Zap, Calendar, Target, DollarSign, Lightbulb, Flame, Clock } from 'lucide-react'
+import { Zap, Calendar, Target, DollarSign, Lightbulb, Flame, Clock, AlertTriangle, Palette, FileText, CheckSquare, ArrowRight } from 'lucide-react'
 import type { RestaurantId } from '../../data/mockData'
 import { aiRecommendations } from '../../data/mockData'
 
@@ -52,6 +52,186 @@ export default function AIRecommendations({ restaurant }: Props) {
         </div>
       </div>
 
+      {/* ─── WishlyAI PLAN SECTION (only for accounts with wishlyPlan) ────── */}
+      {(recs as any).wishlyPlan && (() => {
+        const plan = (recs as any).wishlyPlan
+        return (
+          <div className="space-y-4">
+            {/* Plan header */}
+            <div className="flex items-center gap-3 px-1">
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, #7c3aed, #4f46e5)' }}>
+                <FileText size={16} className="text-white" />
+              </div>
+              <div>
+                <div className="font-black text-base tracking-tight" style={{ color: '#c4b5fd' }}>WishlyAI Launch Plan — {plan.phaseLabel}</div>
+                <div className="text-xs" style={{ color: '#6d28d9' }}>What we do first. Why we do it. In order.</div>
+              </div>
+              <div className="ml-auto badge" style={{ background: 'rgba(124,58,237,0.15)', color: '#a78bfa', border: '1px solid rgba(124,58,237,0.3)', fontSize: 10 }}>
+                Phase 1
+              </div>
+            </div>
+
+            {/* CRITICAL ALERT — Google Temporarily Closed */}
+            <div className="p-4 rounded-2xl" style={{ background: 'linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.06))', border: '2px solid rgba(239,68,68,0.5)' }}>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(239,68,68,0.2)', border: '1px solid rgba(239,68,68,0.4)' }}>
+                  <AlertTriangle size={20} style={{ color: '#f87171' }} />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                    <span className="font-black text-sm" style={{ color: '#fca5a5' }}>CRITICAL ACTION: {plan.criticalAlert.issue}</span>
+                    <span className="badge" style={{ background: 'rgba(239,68,68,0.2)', color: '#f87171', border: '1px solid rgba(239,68,68,0.4)', fontSize: 9 }}>DO THIS NOW</span>
+                  </div>
+                  <p className="text-xs mb-3 leading-relaxed" style={{ color: '#fca5a5', opacity: 0.85 }}>{plan.criticalAlert.consequence}</p>
+                  <div className="flex items-start gap-2 p-2.5 rounded-lg mb-2" style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}>
+                    <ArrowRight size={12} style={{ color: '#f87171', flexShrink: 0, marginTop: 1 }} />
+                    <span className="text-xs font-semibold" style={{ color: '#fbbf24' }}>{plan.criticalAlert.action}</span>
+                  </div>
+                  <div className="badge" style={{ background: 'rgba(16,185,129,0.12)', color: '#10b981', border: '1px solid rgba(16,185,129,0.2)', fontSize: 10 }}>
+                    ✓ Estimated impact: {plan.criticalAlert.estimatedImpact}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bio Redesign + Brand Palette */}
+            <div className="grid grid-cols-2 gap-4">
+              {/* Bio Redesign */}
+              <div className="card p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <FileText size={14} style={{ color: '#f97316' }} />
+                  <span className="font-bold text-sm" style={{ color: '#fef3c7' }}>Bio Redesign</span>
+                  <span className="badge ml-auto" style={{ background: 'rgba(239,68,68,0.12)', color: '#f87171', fontSize: 9 }}>Before → After</span>
+                </div>
+                <div className="space-y-2">
+                  <div className="p-2.5 rounded-lg" style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)' }}>
+                    <div className="text-[9px] font-black mb-1.5 tracking-widest uppercase" style={{ color: '#ef4444' }}>Current (broken)</div>
+                    <p className="text-xs leading-relaxed" style={{ color: '#9ca3af' }}>{plan.bioRedo.current}</p>
+                  </div>
+                  <div className="flex justify-center">
+                    <ArrowRight size={14} style={{ color: '#f97316' }} />
+                  </div>
+                  <div className="p-2.5 rounded-lg" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.25)' }}>
+                    <div className="text-[9px] font-black mb-1.5 tracking-widest uppercase" style={{ color: '#10b981' }}>WishlyAI Proposed</div>
+                    <p className="text-xs leading-relaxed whitespace-pre-line" style={{ color: '#6ee7b7' }}>{plan.bioRedo.proposed}</p>
+                  </div>
+                </div>
+                <p className="text-[10px] mt-2 leading-relaxed" style={{ color: '#78350f' }}>💡 {plan.bioRedo.why}</p>
+              </div>
+
+              {/* Brand Palette */}
+              <div className="card p-4">
+                <div className="flex items-center gap-2 mb-1">
+                  <Palette size={14} style={{ color: '#f97316' }} />
+                  <span className="font-bold text-sm" style={{ color: '#fef3c7' }}>Brand Palette</span>
+                </div>
+                <p className="text-[10px] mb-3" style={{ color: '#78350f' }}>{plan.brandPalette.note}</p>
+                <div className="space-y-2">
+                  {plan.brandPalette.colors.map((c: any, i: number) => (
+                    <div key={i} className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-lg flex-shrink-0 border" style={{ background: c.hex, borderColor: 'rgba(255,255,255,0.1)' }} />
+                      <div>
+                        <div className="text-xs font-semibold" style={{ color: '#fef3c7' }}>{c.name}</div>
+                        <div className="text-[10px]" style={{ color: '#a16207' }}>{c.hex} — {c.use}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* First 5 Content Plan */}
+            <div className="card">
+              <div className="flex items-center gap-2 mb-4">
+                <CheckSquare size={16} style={{ color: '#f97316' }} />
+                <div className="font-bold text-sm" style={{ color: '#fef3c7' }}>First 5 Content Pieces — WishlyAI Delivers These</div>
+                <div className="badge ml-auto" style={{ background: 'rgba(249,115,22,0.12)', color: '#f97316', fontSize: 10 }}>In order of priority</div>
+              </div>
+              <div className="space-y-3">
+                {plan.firstFiveContent.map((item: any) => (
+                  <div key={item.number} className="p-4 rounded-xl" style={{ background: 'rgba(0,0,0,0.15)', border: '1px solid rgba(249,115,22,0.1)' }}>
+                    <div className="flex items-start gap-3">
+                      {/* Number badge */}
+                      <div className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-black text-sm" style={{ background: 'rgba(249,115,22,0.15)', border: '1px solid rgba(249,115,22,0.3)', color: '#f97316' }}>
+                        {item.number}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                          <span className="font-bold text-sm" style={{ color: '#fef3c7' }}>{item.title}</span>
+                          <span className="badge text-[9px] font-black px-2 py-0.5 rounded-full" style={{ background: item.urgencyColor + '22', color: item.urgencyColor, border: `1px solid ${item.urgencyColor}44` }}>
+                            {item.urgency}
+                          </span>
+                          <span className="badge" style={{ background: 'rgba(249,115,22,0.08)', color: '#a16207', fontSize: 9 }}>{item.type}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 mb-2">
+                          <Clock size={10} style={{ color: item.urgencyColor, flexShrink: 0 }} />
+                          <span className="text-xs font-semibold" style={{ color: item.urgencyColor }}>{item.whenToPost}</span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2 mb-2">
+                          <div className="p-2 rounded-lg" style={{ background: 'rgba(249,115,22,0.05)', border: '1px solid rgba(249,115,22,0.08)' }}>
+                            <div className="text-[9px] font-black mb-1 tracking-widest uppercase" style={{ color: '#b45309' }}>What we film</div>
+                            <p className="text-[10px] leading-relaxed" style={{ color: '#d97706' }}>{item.what}</p>
+                          </div>
+                          <div className="p-2 rounded-lg" style={{ background: 'rgba(124,58,237,0.05)', border: '1px solid rgba(124,58,237,0.1)' }}>
+                            <div className="text-[9px] font-black mb-1 tracking-widest uppercase" style={{ color: '#7c3aed' }}>Why this works</div>
+                            <p className="text-[10px] leading-relaxed" style={{ color: '#a78bfa' }}>{item.why}</p>
+                          </div>
+                        </div>
+                        <div className="p-2 rounded-lg mb-1.5" style={{ background: 'rgba(0,0,0,0.12)', border: '1px solid rgba(251,191,36,0.1)' }}>
+                          <div className="text-[9px] font-black mb-0.5 tracking-widest uppercase" style={{ color: '#92400e' }}>Caption</div>
+                          <p className="text-[10px] italic" style={{ color: '#fbbf24' }}>{item.caption}</p>
+                        </div>
+                        <div className="text-[10px]" style={{ color: '#78350f' }}>
+                          Hashtags: <span style={{ color: '#b45309' }}>{item.hashtags}</span>
+                        </div>
+                      </div>
+                      {/* Virality score */}
+                      <div className="flex-shrink-0 text-center">
+                        <div className="text-[9px] mb-1" style={{ color: '#78350f' }}>Virality</div>
+                        <div className="w-12 h-12 rounded-full flex items-center justify-center border-2" style={{ borderColor: item.viralityScore >= 90 ? '#10b981' : '#f97316', background: 'rgba(0,0,0,0.2)' }}>
+                          <div>
+                            <div className="font-black text-sm leading-none" style={{ color: item.viralityScore >= 90 ? '#10b981' : '#fbbf24' }}>{item.viralityScore}</div>
+                            <div className="text-[7px]" style={{ color: '#78350f' }}>/100</div>
+                          </div>
+                        </div>
+                        {item.viralityScore >= 90 && <div className="text-[9px] mt-0.5" style={{ color: '#10b981' }}>🔥 Hot</div>}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Google Business Fix */}
+            <div className="card p-4" style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.06), rgba(5,150,105,0.04))', borderColor: 'rgba(16,185,129,0.2)' }}>
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(16,185,129,0.15)', border: '1px solid rgba(16,185,129,0.3)' }}>
+                  <span style={{ fontSize: 18 }}>🗺️</span>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                    <span className="font-bold text-sm" style={{ color: '#6ee7b7' }}>Google Business Fix: {plan.googleBusinessFix.issue}</span>
+                    <span className="badge" style={{ background: 'rgba(16,185,129,0.12)', color: '#10b981', fontSize: 9 }}>Quick Win</span>
+                  </div>
+                  <p className="text-xs mb-3 leading-relaxed" style={{ color: '#a16207' }}>{plan.googleBusinessFix.currentImpact}</p>
+                  <div className="grid grid-cols-2 gap-2 mb-2">
+                    {plan.googleBusinessFix.steps.map((step: string, i: number) => (
+                      <div key={i} className="flex items-start gap-1.5">
+                        <span className="text-xs font-bold flex-shrink-0" style={{ color: '#10b981' }}>{i + 1}.</span>
+                        <span className="text-[10px]" style={{ color: '#6ee7b7' }}>{step}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="badge" style={{ background: 'rgba(16,185,129,0.1)', color: '#10b981', border: '1px solid rgba(16,185,129,0.2)', fontSize: 10 }}>
+                    ✓ {plan.googleBusinessFix.estimatedImpact}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      })()}
+
       {/* Content Calendar */}
       <div className="card">
         <div className="flex items-center gap-2 mb-3">
@@ -83,6 +263,44 @@ export default function AIRecommendations({ restaurant }: Props) {
           {recs.contentCalendar.map((item, i) => {
             const missed = (item as any).missed === true
             const alert = (item as any).alert === true
+            const ipl = (item as any).ipl === true
+
+            if (ipl) {
+              return (
+                <div key={i} className="p-4 rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.06))', border: '1.5px solid rgba(16,185,129,0.4)' }}>
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                        <span className="font-bold text-sm" style={{ color: '#fef3c7' }}>{item.title}</span>
+                        <span className="badge" style={{ background: 'rgba(16,185,129,0.2)', color: '#10b981', border: '1px solid rgba(16,185,129,0.4)', fontSize: 9 }}>🏏 IPL PRIORITY</span>
+                        <span className="badge" style={{ background: 'rgba(16,185,129,0.1)', color: '#6ee7b7', fontSize: 9 }}>{item.type}</span>
+                      </div>
+                      <div className="flex items-center gap-2 mb-2 text-xs">
+                        <Clock size={11} style={{ color: '#10b981' }} />
+                        <span className="font-semibold" style={{ color: item.date.includes('Today') ? '#10b981' : '#6ee7b7' }}>{item.date}</span>
+                        {item.date.includes('Today') && <span className="text-[10px] font-bold" style={{ color: '#10b981' }}>— Post right now for maximum IPL reach</span>}
+                      </div>
+                      <div className="p-2.5 rounded-lg text-xs leading-relaxed" style={{ background: 'rgba(16,185,129,0.06)', color: '#6ee7b7', fontStyle: 'italic', border: '1px solid rgba(16,185,129,0.12)' }}>
+                        "{item.caption}"
+                      </div>
+                      <div className="mt-2 text-[10px]" style={{ color: '#78350f' }}>
+                        Suggested hashtags: <span style={{ color: '#059669' }}>{item.hashtags}</span>
+                      </div>
+                    </div>
+                    <div className="flex-shrink-0 text-center">
+                      <div className="text-[10px] mb-1" style={{ color: '#78350f' }}>Virality</div>
+                      <div className="w-14 h-14 rounded-full flex items-center justify-center border-2" style={{ borderColor: '#10b981', background: 'rgba(16,185,129,0.1)' }}>
+                        <div>
+                          <div className="font-black text-lg leading-none" style={{ color: '#10b981' }}>{item.viralityScore}</div>
+                          <div className="text-[8px]" style={{ color: '#78350f' }}>/100</div>
+                        </div>
+                      </div>
+                      <div className="text-[10px] mt-1" style={{ color: '#10b981' }}>🏆 IPL</div>
+                    </div>
+                  </div>
+                </div>
+              )
+            }
 
             if (alert) {
               return (

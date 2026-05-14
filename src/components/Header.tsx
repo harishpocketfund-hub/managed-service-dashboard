@@ -1,13 +1,16 @@
 ﻿import { RefreshCw, ChevronDown } from 'lucide-react'
 
+import type { RestaurantId } from '../data/mockData'
+
 interface HeaderProps {
-  restaurant: 'ishtaa' | 'aaha'
-  onSwitch: (r: 'ishtaa' | 'aaha') => void
+  restaurant: RestaurantId
+  onSwitch: (r: RestaurantId) => void
 }
 
 const restaurants = {
   ishtaa: { name: 'Ishtaa – Veg Restaurant', handle: '@ishtaa_veg', logo: '🌿', color: '#f97316' },
   aaha: { name: 'Amaha', handle: '@amaha', logo: '🌾', color: '#ea580c' },
+  just_biryani: { name: 'Just Biryani', handle: '@just_biryanis', logo: '🍛', color: '#c2410c' },
 }
 
 export default function Header({ restaurant, onSwitch }: HeaderProps) {
@@ -44,7 +47,7 @@ export default function Header({ restaurant, onSwitch }: HeaderProps) {
 
       {/* Restaurant Switcher */}
       <div className="flex items-center gap-2">
-        {(['ishtaa', 'aaha'] as const).map(id => {
+        {(['ishtaa', 'aaha', 'just_biryani'] as const).map(id => {
           const item = restaurants[id]
           const active = restaurant === id
           return (
