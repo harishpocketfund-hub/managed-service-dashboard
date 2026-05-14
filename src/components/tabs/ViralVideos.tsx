@@ -7,7 +7,7 @@ interface Props { restaurant: RestaurantId }
 
 export default function ViralVideos({ restaurant }: Props) {
   const videos = viralVideos[restaurant]
-  const name = restaurant === 'ishtaa' ? 'Ishtaa Veg' : 'Amaha Food Village'
+  const name = restaurant === 'ishtaa' ? 'Ishtaa Veg' : 'Amaha'
 
   return (
     <div className="space-y-5 animate-in">

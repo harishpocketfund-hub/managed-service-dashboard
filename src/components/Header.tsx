@@ -7,7 +7,7 @@ interface HeaderProps {
 
 const restaurants = {
   ishtaa: { name: 'Ishtaa – Veg Restaurant', handle: '@ishtaa_veg', logo: '🌿', color: '#f97316' },
-  aaha: { name: 'Amaha Food Village', handle: '@aahafoodvillage', logo: '🌾', color: '#ea580c' },
+  aaha: { name: 'Amaha', handle: '@amaha', logo: '🌾', color: '#ea580c' },
 }
 
 export default function Header({ restaurant, onSwitch }: HeaderProps) {

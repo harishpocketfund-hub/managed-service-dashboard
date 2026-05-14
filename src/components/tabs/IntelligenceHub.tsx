@@ -18,7 +18,7 @@ interface Props { restaurant: RestaurantId }
 export default function IntelligenceHub({ restaurant }: Props) {
   const [active, setActive] = useState('relevant')
   const d = intelligenceData
-  const name = restaurant === 'ishtaa' ? 'Ishtaa Veg' : 'Amaha Food Village'
+  const name = restaurant === 'ishtaa' ? 'Ishtaa Veg' : 'Amaha'
 
   const relevantFestivals = d.festivals.slice(0, 4)
   const relevantNews = [...d.localNews, ...d.foodIndustryNews].filter(n => n.relevance.includes(restaurant)).slice(0, 5)

@@ -172,11 +172,11 @@ export const ishtaaData = {
   },
 }
 
-// ─── Mock Data for Amaha Food Village ───────────────────────────────────────
+// ─── Mock Data for Amaha ────────────────────────────────────────────────────
 export const aahaData = {
   id: 'aaha' as RestaurantId,
-  name: 'Amaha Food Village',
-  handle: '@aahafoodvillage',
+  name: 'Amaha',
+  handle: '@amaha',
   logo: '🌾',
   tagline: 'Soulful South Indian Breakfast | Manikonda, Hyderabad',
   locations: ['Manikonda', 'Puppalaguda'],
@@ -428,13 +428,13 @@ export const aiRecommendations = {
   },
   aaha: {
     contentCalendar: [
-      { date: 'May 10 (Past)', title: 'Mother\'s Day Morning Special', type: 'Reel', festival: 'Mother\'s Day', viralityScore: 91, caption: '"The woman who fed you every morning deserves this morning 💛 Bring Amma to Amaha — special breakfast for the special one. Open from 6am!"', hashtags: '#MothersDayBreakfast #AahaFoodVillage #HyderabadBreakfast', missed: true },
-      { date: 'May 14 (Today)', title: 'Swiggy Offer Detected', type: 'Platform Alert', festival: 'Swiggy Promo Detected', viralityScore: 85, caption: '"Skip the wait, skip the fee — Amaha breakfast is best enjoyed fresh at the table ☕ Walk in today and taste the difference!"', hashtags: '#AahaFoodVillage #DineIn #SkipDelivery #ManikondaFood', alert: true },
-      { date: 'May 18 (Sun)', title: 'Sunday Morning Spread Reel', type: 'Reel', festival: 'Weekend', viralityScore: 82, caption: '"Sunday morning is incomplete without Amaha\'s 7-item breakfast platter ☀️ Which is YOUR favourite? Comment below!"', hashtags: '#SundayBreakfast #AahaFoodVillage #ManikondaFood #HydBreakfast' },
-      { date: 'May 23', title: 'Buddha Purnima Pure Breakfast', type: 'Carousel', festival: 'Buddha Purnima', viralityScore: 84, caption: '"Pure food for a pure day 🕊️ Our completely vegetarian, no-onion breakfast menu is available everyday — and especially today."', hashtags: '#BuddhaPurnima #PureBreakfast #AahaFoodVillage #Andhra' },
-      { date: 'Jun 1', title: 'World Milk Day Filter Coffee', type: 'Reel', festival: 'World Milk Day', viralityScore: 77, caption: '"The perfect morning begins with Amaha\'s filter coffee ☕ — brewed fresh, served with love. Happy World Milk Day!"', hashtags: '#WorldMilkDay #FilterCoffee #AahaFoodVillage #SouthIndianBreakfast' },
-      { date: 'Jun 5', title: 'Early Riser Champion Story', type: 'Story Series', festival: 'IPL Final', viralityScore: 74, caption: '"Champions wake up early. So do we. 🏆 Amaha is open from 6am — fuel your morning like a champion!"', hashtags: '#IPLFinal2026 #EarlyMorning #AahaFoodVillage' },
-      { date: 'Jun 21', title: 'Father\'s Day Andhra Breakfast', type: 'Reel', festival: 'Father\'s Day', viralityScore: 87, caption: '"Dad always says the best breakfast is Amma\'s. We come close 😄 Bring him to Amaha this Father\'s Day — special Andhra breakfast platter!"', hashtags: '#FathersDay2026 #AndhraBreakfast #AahaFoodVillage' },
+      { date: 'May 10 (Past)', title: 'Mother\'s Day Morning Special', type: 'Reel', festival: 'Mother\'s Day', viralityScore: 91, caption: '"The woman who fed you every morning deserves this morning 💛 Bring Amma to Amaha — special breakfast for the special one. Open from 6am!"', hashtags: '#MothersDayBreakfast #Amaha #HyderabadBreakfast', missed: true },
+      { date: 'May 14 (Today)', title: 'Swiggy Offer Detected', type: 'Platform Alert', festival: 'Swiggy Promo Detected', viralityScore: 85, caption: '"Skip the wait, skip the fee — Amaha breakfast is best enjoyed fresh at the table ☕ Walk in today and taste the difference!"', hashtags: '#Amaha #DineIn #SkipDelivery #ManikondaFood', alert: true },
+      { date: 'May 18 (Sun)', title: 'Sunday Morning Spread Reel', type: 'Reel', festival: 'Weekend', viralityScore: 82, caption: '"Sunday morning is incomplete without Amaha\'s 7-item breakfast platter ☀️ Which is YOUR favourite? Comment below!"', hashtags: '#SundayBreakfast #Amaha #ManikondaFood #HydBreakfast' },
+      { date: 'May 23', title: 'Buddha Purnima Pure Breakfast', type: 'Carousel', festival: 'Buddha Purnima', viralityScore: 84, caption: '"Pure food for a pure day 🕊️ Our completely vegetarian, no-onion breakfast menu is available everyday — and especially today."', hashtags: '#BuddhaPurnima #PureBreakfast #Amaha #Andhra' },
+      { date: 'Jun 1', title: 'World Milk Day Filter Coffee', type: 'Reel', festival: 'World Milk Day', viralityScore: 77, caption: '"The perfect morning begins with Amaha\'s filter coffee ☕ — brewed fresh, served with love. Happy World Milk Day!"', hashtags: '#WorldMilkDay #FilterCoffee #Amaha #SouthIndianBreakfast' },
+      { date: 'Jun 5', title: 'Early Riser Champion Story', type: 'Story Series', festival: 'IPL Final', viralityScore: 74, caption: '"Champions wake up early. So do we. 🏆 Amaha is open from 6am — fuel your morning like a champion!"', hashtags: '#IPLFinal2026 #EarlyMorning #Amaha' },
+      { date: 'Jun 21', title: 'Father\'s Day Andhra Breakfast', type: 'Reel', festival: 'Father\'s Day', viralityScore: 87, caption: '"Dad always says the best breakfast is Amma\'s. We come close 😄 Bring him to Amaha this Father\'s Day — special Andhra breakfast platter!"', hashtags: '#FathersDay2026 #AndhraBreakfast #Amaha' },
     ],
     contentGaps: [
       { gap: 'Morning Reel content (6–8am)', opportunity: '@udipiupahar posts morning reels daily — gets 3.2x reach vs evening posts', action: 'Film 7am kitchen opening, fresh idly batters — post as morning reel 5x/week' },

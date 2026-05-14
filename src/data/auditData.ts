@@ -169,8 +169,8 @@ export const auditData = {
   },
 
   aaha: {
-    handle: '@aahafoodvillage',
-    name: 'Amaha Food Village',
+    handle: '@amaha',
+    name: 'Amaha',
     auditDate: 'May 2026',
     profileScore: 54,
     scoreBreakdown: [
@@ -264,7 +264,7 @@ export const auditData = {
         {
           tier: 'Brand',
           purpose: 'Build brand search volume',
-          tags: ['#AahaFoodVillage', '#AahaHyderabad', '#AahaPureFlavours'],
+          tags: ['#Amaha', '#AmahaHyderabad', '#AmahaPureFlavours'],
           color: '#8a5a0a',
         },
       ],
