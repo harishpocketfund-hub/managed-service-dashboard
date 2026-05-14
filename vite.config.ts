@@ -6,11 +6,10 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'recharts': ['recharts'],
-          'lucide': ['lucide-react'],
-          'framer': ['framer-motion'],
+        manualChunks(id) {
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) return 'react-vendor'
+          if (id.includes('node_modules/recharts')) return 'recharts'
+          if (id.includes('node_modules/lucide-react')) return 'lucide'
         },
       },
     },

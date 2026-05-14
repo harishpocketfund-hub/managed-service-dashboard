@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Cell, Tooltip } from 'recharts'
+import { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer } from 'recharts'
 import { AlertTriangle, CheckCircle2, Clock, Users, Hash, Calendar, TrendingUp, Target, Star, BookOpen, ChevronDown, ChevronUp } from 'lucide-react'
 import type { RestaurantId } from '../../data/mockData'
 import { auditData } from '../../data/auditData'
