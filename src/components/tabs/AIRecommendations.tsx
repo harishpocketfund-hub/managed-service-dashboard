@@ -80,40 +80,124 @@ export default function AIRecommendations({ restaurant }: Props) {
 
         {/* Calendar Cards */}
         <div className="space-y-3">
-          {recs.contentCalendar.map((item, i) => (
-            <div key={i} className={`p-4 rounded-xl ${item.viralityScore >= 90 ? 'virality-high' : 'virality-med'}`}>
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="font-bold text-sm" style={{ color: '#fef3c7' }}>{item.title}</span>
-                    <span className="badge" style={{ background: 'rgba(249,115,22,0.12)', color: '#f97316', fontSize: 9 }}>{item.type}</span>
-                    <span className="badge" style={{ background: 'rgba(251,191,36,0.1)', color: '#fbbf24', fontSize: 9 }}>🎉 {item.festival}</span>
-                  </div>
-                  <div className="flex items-center gap-2 mb-2 text-xs" style={{ color: '#a16207' }}>
-                    <Clock size={11} />
-                    <span className="font-semibold" style={{ color: item.date.includes('Today') ? '#f97316' : '#fbbf24' }}>{item.date}</span>
-                  </div>
-                  <div className="p-2.5 rounded-lg text-xs leading-relaxed" style={{ background: 'rgba(0,0,0,0.15)', color: '#d97706', fontStyle: 'italic' }}>
-                    "{item.caption}"
-                  </div>
-                  <div className="mt-2 text-[10px]" style={{ color: '#78350f' }}>
-                    Suggested hashtags: <span style={{ color: '#b45309' }}>{item.hashtags}</span>
-                  </div>
-                </div>
-                <div className="flex-shrink-0 text-center">
-                  <div className="text-[10px] mb-1" style={{ color: '#78350f' }}>Virality</div>
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center border-2"
-                    style={{ borderColor: item.viralityScore >= 90 ? '#10b981' : '#f97316', background: 'rgba(0,0,0,0.2)' }}>
-                    <div>
-                      <div className="font-black text-lg leading-none" style={{ color: item.viralityScore >= 90 ? '#10b981' : '#fbbf24' }}>{item.viralityScore}</div>
-                      <div className="text-[8px]" style={{ color: '#78350f' }}>/100</div>
+          {recs.contentCalendar.map((item, i) => {
+            const missed = (item as any).missed === true
+            const alert = (item as any).alert === true
+
+            if (alert) {
+              return (
+                <div key={i} className="p-4 rounded-xl" style={{ background: 'linear-gradient(135deg, rgba(252,128,25,0.12), rgba(252,128,25,0.06))', border: '1.5px solid rgba(252,128,25,0.5)' }}>
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                        <span className="font-bold text-sm" style={{ color: '#fef3c7' }}>{item.title}</span>
+                        <span className="badge flex items-center gap-1" style={{ background: 'rgba(252,128,25,0.2)', color: '#fc8019', border: '1px solid rgba(252,128,25,0.4)', fontSize: 9 }}>
+                          <div className="ai-dot" style={{ background: '#fc8019' }} /> DETECTED
+                        </span>
+                        <span className="badge" style={{ background: 'rgba(252,128,25,0.12)', color: '#fc8019', fontSize: 9 }}>🛵 {item.festival}</span>
+                      </div>
+                      <div className="flex items-center gap-2 mb-2 text-xs" style={{ color: '#a16207' }}>
+                        <Clock size={11} />
+                        <span className="font-semibold" style={{ color: '#fc8019' }}>{item.date}</span>
+                        <span className="text-[10px]" style={{ color: '#fc8019' }}>— Act within 2 hours for maximum impact</span>
+                      </div>
+                      <div className="p-2.5 rounded-lg text-xs leading-relaxed" style={{ background: 'rgba(252,128,25,0.08)', color: '#fbbf24', fontStyle: 'italic', border: '1px solid rgba(252,128,25,0.15)' }}>
+                        Suggested response: "{item.caption}"
+                      </div>
+                      <div className="mt-2 text-[10px]" style={{ color: '#78350f' }}>
+                        Suggested hashtags: <span style={{ color: '#b45309' }}>{item.hashtags}</span>
+                      </div>
+                    </div>
+                    <div className="flex-shrink-0 text-center">
+                      <div className="text-[10px] mb-1" style={{ color: '#78350f' }}>Urgency</div>
+                      <div className="w-14 h-14 rounded-full flex items-center justify-center border-2"
+                        style={{ borderColor: '#fc8019', background: 'rgba(252,128,25,0.1)' }}>
+                        <div>
+                          <div className="font-black text-lg leading-none" style={{ color: '#fc8019' }}>{item.viralityScore}</div>
+                          <div className="text-[8px]" style={{ color: '#78350f' }}>/100</div>
+                        </div>
+                      </div>
+                      <div className="text-[10px] mt-1" style={{ color: '#fc8019' }}>🛵 Live</div>
                     </div>
                   </div>
-                  {item.viralityScore >= 90 && <div className="text-[10px] mt-1" style={{ color: '#10b981' }}>🔥 Hot</div>}
+                </div>
+              )
+            }
+
+            if (missed) {
+              return (
+                <div key={i} className="p-4 rounded-xl" style={{ background: 'rgba(239,68,68,0.08)', border: '1.5px solid rgba(239,68,68,0.4)', opacity: 0.85 }}>
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                        <span className="font-bold text-sm line-through" style={{ color: '#fca5a5' }}>{item.title}</span>
+                        <span className="badge" style={{ background: 'rgba(239,68,68,0.2)', color: '#f87171', border: '1px solid rgba(239,68,68,0.4)', fontSize: 9 }}>✗ MISSED</span>
+                        <span className="badge" style={{ background: 'rgba(239,68,68,0.1)', color: '#ef4444', fontSize: 9 }}>{item.type}</span>
+                        <span className="badge" style={{ background: 'rgba(239,68,68,0.1)', color: '#f87171', fontSize: 9 }}>💔 {item.festival}</span>
+                      </div>
+                      <div className="flex items-center gap-2 mb-2 text-xs" style={{ color: '#a16207' }}>
+                        <Clock size={11} style={{ color: '#ef4444' }} />
+                        <span className="font-semibold" style={{ color: '#ef4444' }}>{item.date}</span>
+                        <span className="text-[10px]" style={{ color: '#ef4444' }}>— Repurpose for Father's Day (Jun 21)</span>
+                      </div>
+                      <div className="p-2.5 rounded-lg text-xs leading-relaxed" style={{ background: 'rgba(239,68,68,0.06)', color: '#9ca3af', fontStyle: 'italic' }}>
+                        "{item.caption}"
+                      </div>
+                      <div className="mt-2 text-[10px]" style={{ color: '#78350f' }}>
+                        Suggested hashtags: <span style={{ color: '#7f1d1d' }}>{item.hashtags}</span>
+                      </div>
+                    </div>
+                    <div className="flex-shrink-0 text-center">
+                      <div className="text-[10px] mb-1" style={{ color: '#78350f' }}>Virality</div>
+                      <div className="w-14 h-14 rounded-full flex items-center justify-center border-2"
+                        style={{ borderColor: '#ef4444', background: 'rgba(239,68,68,0.1)' }}>
+                        <div>
+                          <div className="font-black text-lg leading-none" style={{ color: '#ef4444' }}>{item.viralityScore}</div>
+                          <div className="text-[8px]" style={{ color: '#78350f' }}>/100</div>
+                        </div>
+                      </div>
+                      <div className="text-[10px] mt-1" style={{ color: '#ef4444' }}>Missed</div>
+                    </div>
+                  </div>
+                </div>
+              )
+            }
+
+            return (
+              <div key={i} className={`p-4 rounded-xl ${item.viralityScore >= 90 ? 'virality-high' : 'virality-med'}`}>
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="font-bold text-sm" style={{ color: '#fef3c7' }}>{item.title}</span>
+                      <span className="badge" style={{ background: 'rgba(249,115,22,0.12)', color: '#f97316', fontSize: 9 }}>{item.type}</span>
+                      <span className="badge" style={{ background: 'rgba(251,191,36,0.1)', color: '#fbbf24', fontSize: 9 }}>🎉 {item.festival}</span>
+                    </div>
+                    <div className="flex items-center gap-2 mb-2 text-xs" style={{ color: '#a16207' }}>
+                      <Clock size={11} />
+                      <span className="font-semibold" style={{ color: item.date.includes('Today') ? '#f97316' : '#fbbf24' }}>{item.date}</span>
+                    </div>
+                    <div className="p-2.5 rounded-lg text-xs leading-relaxed" style={{ background: 'rgba(0,0,0,0.15)', color: '#d97706', fontStyle: 'italic' }}>
+                      "{item.caption}"
+                    </div>
+                    <div className="mt-2 text-[10px]" style={{ color: '#78350f' }}>
+                      Suggested hashtags: <span style={{ color: '#b45309' }}>{item.hashtags}</span>
+                    </div>
+                  </div>
+                  <div className="flex-shrink-0 text-center">
+                    <div className="text-[10px] mb-1" style={{ color: '#78350f' }}>Virality</div>
+                    <div className="w-14 h-14 rounded-full flex items-center justify-center border-2"
+                      style={{ borderColor: item.viralityScore >= 90 ? '#10b981' : '#f97316', background: 'rgba(0,0,0,0.2)' }}>
+                      <div>
+                        <div className="font-black text-lg leading-none" style={{ color: item.viralityScore >= 90 ? '#10b981' : '#fbbf24' }}>{item.viralityScore}</div>
+                        <div className="text-[8px]" style={{ color: '#78350f' }}>/100</div>
+                      </div>
+                    </div>
+                    {item.viralityScore >= 90 && <div className="text-[10px] mt-1" style={{ color: '#10b981' }}>🔥 Hot</div>}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
 
