@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Header from './components/Header'
 import IntelligenceHub from './components/tabs/IntelligenceHub'
 import SocialAnalytics from './components/tabs/SocialAnalytics'
@@ -7,7 +7,7 @@ import CompetitiveIntel from './components/tabs/CompetitiveIntel'
 import AIRecommendations from './components/tabs/AIRecommendations'
 import ViralVideos from './components/tabs/ViralVideos'
 import InstagramAudit from './components/tabs/InstagramAudit'
-import { Brain, BarChart2, Globe, Swords, Zap, PlayCircle, ClipboardList } from 'lucide-react'
+import { Brain, BarChart2, Globe, Swords, Zap, PlayCircle, ClipboardList, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { RestaurantId } from './data/mockData'
 
 const tabs = [
@@ -23,14 +23,49 @@ const tabs = [
 export default function App() {
   const [restaurant, setRestaurant] = useState<RestaurantId>('ishtaa')
   const [activeTab, setActiveTab] = useState('ai')
+  const tabScrollRef = useRef<HTMLDivElement>(null)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(true)
+
+  const scrollTabs = (dir: 'left' | 'right') => {
+    const el = tabScrollRef.current
+    if (el) el.scrollBy({ left: dir === 'left' ? -200 : 200, behavior: 'smooth' })
+  }
+
+  const [scrollPercent, setScrollPercent] = useState(0)
+  const [thumbWidth, setThumbWidth] = useState(30)
+
+  const onTabScroll = () => {
+    const el = tabScrollRef.current
+    if (!el) return
+    setCanScrollLeft(el.scrollLeft > 4)
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4)
+    const maxScroll = el.scrollWidth - el.clientWidth
+    setScrollPercent(maxScroll > 0 ? (el.scrollLeft / maxScroll) * 100 : 0)
+    setThumbWidth(Math.max(15, (el.clientWidth / el.scrollWidth) * 100))
+  }
 
   return (
     <div style={{ minHeight: '100vh', background: '#0c0806' }}>
       <Header restaurant={restaurant} onSwitch={setRestaurant} />
 
       {/* Tab Bar */}
-      <div style={{ background: '#110a05', borderBottom: '1px solid rgba(232,93,26,0.14)', position: 'sticky', top: 56, zIndex: 40 }}>
-        <div className="flex items-center px-6 gap-0.5">
+      <div style={{ background: '#110a05', borderBottom: '1px solid rgba(232,93,26,0.14)', position: 'sticky', top: 56, zIndex: 40 }} className="relative flex items-center">
+        {/* Left fade + arrow */}
+        {canScrollLeft && (
+          <div className="absolute left-0 top-0 bottom-0 z-10 flex items-center" style={{ pointerEvents: 'none' }}>
+            <div style={{ width: 48, background: 'linear-gradient(to right, #110a05 40%, transparent)', height: '100%' }} />
+          </div>
+        )}
+        {canScrollLeft && (
+          <button onClick={() => scrollTabs('left')}
+            className="absolute left-0 top-0 bottom-0 z-20 flex items-center justify-center w-8"
+            style={{ color: '#e85d1a' }}>
+            <ChevronLeft size={16} />
+          </button>
+        )}
+
+        <div ref={tabScrollRef} onScroll={onTabScroll} className="flex items-center gap-0.5 overflow-x-auto scrollbar-hide w-full px-6" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {tabs.map(tab => {
             const Icon = tab.icon
             const isActive = activeTab === tab.id
@@ -56,6 +91,33 @@ export default function App() {
               </button>
             )
           })}
+        </div>
+
+        {/* Right fade + arrow — always visible when there's more to scroll */}
+        {canScrollRight && (
+          <div className="absolute right-0 top-0 bottom-0 z-10 flex items-center" style={{ pointerEvents: 'none' }}>
+            <div style={{ width: 64, background: 'linear-gradient(to left, #110a05 50%, transparent)', height: '100%' }} />
+          </div>
+        )}
+        {canScrollRight && (
+          <button onClick={() => scrollTabs('right')}
+            className="absolute right-0 top-0 bottom-0 z-20 flex items-center justify-center w-10 gap-0.5"
+            style={{ color: '#f97316' }}>
+            <ChevronRight size={18} strokeWidth={2.5} />
+          </button>
+        )}
+      </div>
+
+      {/* Tab scroll indicator */}
+      <div style={{ background: '#110a05', height: 3, paddingInline: '1.5rem' }}>
+        <div style={{ position: 'relative', height: '100%', borderRadius: 99, overflow: 'hidden', background: 'rgba(232,93,26,0.1)' }}>
+          <div style={{
+            position: 'absolute', top: 0, height: '100%', borderRadius: 99,
+            width: `${thumbWidth}%`,
+            left: `${scrollPercent * (1 - thumbWidth / 100)}%`,
+            background: 'linear-gradient(90deg, #e85d1a, #f97316)',
+            transition: 'left 0.1s ease',
+          }} />
         </div>
       </div>
 
