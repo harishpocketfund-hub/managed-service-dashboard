@@ -1,4 +1,4 @@
-import { TrendingUp, Lightbulb, Flame, Camera } from 'lucide-react'
+﻿import { TrendingUp, Lightbulb, Flame, Camera } from 'lucide-react'
 import type { RestaurantId } from '../../data/mockData'
 import { viralVideos } from '../../data/mockData'
 import InstagramEmbed from '../InstagramEmbed'
@@ -7,7 +7,7 @@ interface Props { restaurant: RestaurantId }
 
 export default function ViralVideos({ restaurant }: Props) {
   const videos = viralVideos[restaurant]
-  const name = restaurant === 'ishtaa' ? 'Ishtaa Veg' : 'Aaha Food Village'
+  const name = restaurant === 'ishtaa' ? 'Ishtaa Veg' : 'Amaha Food Village'
 
   return (
     <div className="space-y-5 animate-in">

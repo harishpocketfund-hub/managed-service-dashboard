@@ -1,4 +1,4 @@
-import {
+﻿import {
   AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
   PieChart, Pie, Cell, ResponsiveContainer
 } from 'recharts'
@@ -89,7 +89,7 @@ export default function MarketIntelligence({ restaurant }: Props) {
                 <div key={s.name} className="flex items-center justify-between text-xs">
                   <div className="flex items-center gap-1.5">
                     <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: s.color }} />
-                    <span style={{ color: s.name === data.name.split('–')[0].trim() || s.name === 'Aaha' || s.name === 'Ishtaa' ? '#fbbf24' : '#a16207' }}>{s.name}</span>
+                    <span style={{ color: s.name === data.name.split('–')[0].trim() || s.name === 'Amaha' || s.name === 'Ishtaa' ? '#fbbf24' : '#a16207' }}>{s.name}</span>
                   </div>
                   <strong style={{ color: s.color }}>{s.share}%</strong>
                 </div>
@@ -97,7 +97,7 @@ export default function MarketIntelligence({ restaurant }: Props) {
             </div>
           </div>
           <div className="mt-3 p-2 rounded-lg text-xs" style={{ background: 'rgba(249,115,22,0.06)', color: '#d97706' }}>
-            <strong style={{ color: '#f97316' }}>Opportunity:</strong> {restaurant === 'ishtaa' ? '86% mindshare uncaptured — with our content strategy, Ishtaa can realistically target 22% by Q3.' : '92% mindshare uncaptured — Aaha is in prime position to dominate the Manikonda breakfast space with consistent digital presence.'}
+            <strong style={{ color: '#f97316' }}>Opportunity:</strong> {restaurant === 'ishtaa' ? '86% mindshare uncaptured — with our content strategy, Ishtaa can realistically target 22% by Q3.' : '92% mindshare uncaptured — Amaha is in prime position to dominate the Manikonda breakfast space with consistent digital presence.'}
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@ export default function MarketIntelligence({ restaurant }: Props) {
               <span className="font-bold text-xs" style={{ color: '#fbbf24' }}>Strategic Window</span>
             </div>
             <p className="text-xs" style={{ color: '#a16207' }}>
-              {restaurant === 'ishtaa' ? 'Veg dining market in Hyderabad is at an inflection point. The next 90 days are critical for Ishtaa to establish digital dominance before well-funded competitors scale.' : 'The Manikonda breakfast market is under-digitised. First mover advantage on Instagram Reels could give Aaha 3–5x growth in next 60 days.'}
+              {restaurant === 'ishtaa' ? 'Veg dining market in Hyderabad is at an inflection point. The next 90 days are critical for Ishtaa to establish digital dominance before well-funded competitors scale.' : 'The Manikonda breakfast market is under-digitised. First mover advantage on Instagram Reels could give Amaha 3–5x growth in next 60 days.'}
             </p>
           </div>
         </div>

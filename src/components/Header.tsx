@@ -1,4 +1,4 @@
-import { RefreshCw, ChevronDown } from 'lucide-react'
+﻿import { RefreshCw, ChevronDown } from 'lucide-react'
 
 interface HeaderProps {
   restaurant: 'ishtaa' | 'aaha'
@@ -7,7 +7,7 @@ interface HeaderProps {
 
 const restaurants = {
   ishtaa: { name: 'Ishtaa – Veg Restaurant', handle: '@ishtaa_veg', logo: '🌿', color: '#f97316' },
-  aaha: { name: 'Aaha Food Village', handle: '@aahafoodvillage', logo: '🌾', color: '#ea580c' },
+  aaha: { name: 'Amaha Food Village', handle: '@aahafoodvillage', logo: '🌾', color: '#ea580c' },
 }
 
 export default function Header({ restaurant, onSwitch }: HeaderProps) {

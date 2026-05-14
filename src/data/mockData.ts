@@ -1,4 +1,4 @@
-export type RestaurantId = 'ishtaa' | 'aaha'
+﻿export type RestaurantId = 'ishtaa' | 'aaha'
 
 // ─── Engagement timeline (last 30 days) ────────────────────────────────────
 const genEngagement = (base: number, variance: number) =>
@@ -172,10 +172,10 @@ export const ishtaaData = {
   },
 }
 
-// ─── Mock Data for Aaha Food Village ───────────────────────────────────────
+// ─── Mock Data for Amaha Food Village ───────────────────────────────────────
 export const aahaData = {
   id: 'aaha' as RestaurantId,
-  name: 'Aaha Food Village',
+  name: 'Amaha Food Village',
   handle: '@aahafoodvillage',
   logo: '🌾',
   tagline: 'Soulful South Indian Breakfast | Manikonda, Hyderabad',
@@ -314,14 +314,14 @@ export const aahaData = {
       { name: 'Chutneys', share: 28, color: '#b45309' },
       { name: 'Bheema\'s', share: 18, color: '#f97316' },
       { name: 'Udipi Upahar', share: 12, color: '#fbbf24' },
-      { name: 'Aaha', share: 8, color: '#ea580c' },
+      { name: 'Amaha', share: 8, color: '#ea580c' },
       { name: 'Others', share: 34, color: '#3f3f46' },
     ],
     insights: [
       'South Indian breakfast demand in Manikonda area up 34% YoY — fastest growing food micro-market',
       'Morning window 6:30–9:30am sees 78% of all breakfast orders in the area',
       'Filter coffee & ghee dosa combos drive highest repeat customer rate in this segment',
-      'Online ordering for breakfast grew 140% — Aaha is missing this revenue stream entirely',
+      'Online ordering for breakfast grew 140% — Amaha is missing this revenue stream entirely',
     ],
   },
 }
@@ -428,24 +428,24 @@ export const aiRecommendations = {
   },
   aaha: {
     contentCalendar: [
-      { date: 'May 10 (Past)', title: 'Mother\'s Day Morning Special', type: 'Reel', festival: 'Mother\'s Day', viralityScore: 91, caption: '"The woman who fed you every morning deserves this morning 💛 Bring Amma to Aaha — special breakfast for the special one. Open from 6am!"', hashtags: '#MothersDayBreakfast #AahaFoodVillage #HyderabadBreakfast', missed: true },
-      { date: 'May 14 (Today)', title: 'Swiggy Offer Detected', type: 'Platform Alert', festival: 'Swiggy Promo Detected', viralityScore: 85, caption: '"Skip the wait, skip the fee — Aaha breakfast is best enjoyed fresh at the table ☕ Walk in today and taste the difference!"', hashtags: '#AahaFoodVillage #DineIn #SkipDelivery #ManikondaFood', alert: true },
-      { date: 'May 18 (Sun)', title: 'Sunday Morning Spread Reel', type: 'Reel', festival: 'Weekend', viralityScore: 82, caption: '"Sunday morning is incomplete without Aaha\'s 7-item breakfast platter ☀️ Which is YOUR favourite? Comment below!"', hashtags: '#SundayBreakfast #AahaFoodVillage #ManikondaFood #HydBreakfast' },
+      { date: 'May 10 (Past)', title: 'Mother\'s Day Morning Special', type: 'Reel', festival: 'Mother\'s Day', viralityScore: 91, caption: '"The woman who fed you every morning deserves this morning 💛 Bring Amma to Amaha — special breakfast for the special one. Open from 6am!"', hashtags: '#MothersDayBreakfast #AahaFoodVillage #HyderabadBreakfast', missed: true },
+      { date: 'May 14 (Today)', title: 'Swiggy Offer Detected', type: 'Platform Alert', festival: 'Swiggy Promo Detected', viralityScore: 85, caption: '"Skip the wait, skip the fee — Amaha breakfast is best enjoyed fresh at the table ☕ Walk in today and taste the difference!"', hashtags: '#AahaFoodVillage #DineIn #SkipDelivery #ManikondaFood', alert: true },
+      { date: 'May 18 (Sun)', title: 'Sunday Morning Spread Reel', type: 'Reel', festival: 'Weekend', viralityScore: 82, caption: '"Sunday morning is incomplete without Amaha\'s 7-item breakfast platter ☀️ Which is YOUR favourite? Comment below!"', hashtags: '#SundayBreakfast #AahaFoodVillage #ManikondaFood #HydBreakfast' },
       { date: 'May 23', title: 'Buddha Purnima Pure Breakfast', type: 'Carousel', festival: 'Buddha Purnima', viralityScore: 84, caption: '"Pure food for a pure day 🕊️ Our completely vegetarian, no-onion breakfast menu is available everyday — and especially today."', hashtags: '#BuddhaPurnima #PureBreakfast #AahaFoodVillage #Andhra' },
-      { date: 'Jun 1', title: 'World Milk Day Filter Coffee', type: 'Reel', festival: 'World Milk Day', viralityScore: 77, caption: '"The perfect morning begins with Aaha\'s filter coffee ☕ — brewed fresh, served with love. Happy World Milk Day!"', hashtags: '#WorldMilkDay #FilterCoffee #AahaFoodVillage #SouthIndianBreakfast' },
-      { date: 'Jun 5', title: 'Early Riser Champion Story', type: 'Story Series', festival: 'IPL Final', viralityScore: 74, caption: '"Champions wake up early. So do we. 🏆 Aaha is open from 6am — fuel your morning like a champion!"', hashtags: '#IPLFinal2026 #EarlyMorning #AahaFoodVillage' },
-      { date: 'Jun 21', title: 'Father\'s Day Andhra Breakfast', type: 'Reel', festival: 'Father\'s Day', viralityScore: 87, caption: '"Dad always says the best breakfast is Amma\'s. We come close 😄 Bring him to Aaha this Father\'s Day — special Andhra breakfast platter!"', hashtags: '#FathersDay2026 #AndhraBreakfast #AahaFoodVillage' },
+      { date: 'Jun 1', title: 'World Milk Day Filter Coffee', type: 'Reel', festival: 'World Milk Day', viralityScore: 77, caption: '"The perfect morning begins with Amaha\'s filter coffee ☕ — brewed fresh, served with love. Happy World Milk Day!"', hashtags: '#WorldMilkDay #FilterCoffee #AahaFoodVillage #SouthIndianBreakfast' },
+      { date: 'Jun 5', title: 'Early Riser Champion Story', type: 'Story Series', festival: 'IPL Final', viralityScore: 74, caption: '"Champions wake up early. So do we. 🏆 Amaha is open from 6am — fuel your morning like a champion!"', hashtags: '#IPLFinal2026 #EarlyMorning #AahaFoodVillage' },
+      { date: 'Jun 21', title: 'Father\'s Day Andhra Breakfast', type: 'Reel', festival: 'Father\'s Day', viralityScore: 87, caption: '"Dad always says the best breakfast is Amma\'s. We come close 😄 Bring him to Amaha this Father\'s Day — special Andhra breakfast platter!"', hashtags: '#FathersDay2026 #AndhraBreakfast #AahaFoodVillage' },
     ],
     contentGaps: [
       { gap: 'Morning Reel content (6–8am)', opportunity: '@udipiupahar posts morning reels daily — gets 3.2x reach vs evening posts', action: 'Film 7am kitchen opening, fresh idly batters — post as morning reel 5x/week' },
-      { gap: 'Online ordering CTA', opportunity: 'Swiggy breakfast orders in Manikonda grew 140% — Aaha not listed prominently', action: 'Pin Swiggy/Zomato link in bio, add CTA to every post caption' },
+      { gap: 'Online ordering CTA', opportunity: 'Swiggy breakfast orders in Manikonda grew 140% — Amaha not listed prominently', action: 'Pin Swiggy/Zomato link in bio, add CTA to every post caption' },
       { gap: 'Hyderabad local hashtags', opportunity: 'Posts without local hashtags get 34% less discovery reach', action: 'Add #ManikondaFood #HydBreakfast #PuppalagudaEats to all posts' },
-      { gap: 'Interactive content (polls, Q&A)', opportunity: '@udipiupahar comments avg 88 — 4.9x more than Aaha via interactive captions', action: 'End every caption with a question — "Idly or Dosa — you choose!"' },
+      { gap: 'Interactive content (polls, Q&A)', opportunity: '@udipiupahar comments avg 88 — 4.9x more than Amaha via interactive captions', action: 'End every caption with a question — "Idly or Dosa — you choose!"' },
     ],
     viralityAlerts: [
-      { trigger: 'TS EAMCET Results (May 18)', potential: 'Very High', idea: '"Congratulations to all EAMCET qualifiers! 🎉 Celebrate your success with a special breakfast at Aaha — first 50 students eat free!"' },
+      { trigger: 'TS EAMCET Results (May 18)', potential: 'Very High', idea: '"Congratulations to all EAMCET qualifiers! 🎉 Celebrate your success with a special breakfast at Amaha — first 50 students eat free!"' },
       { trigger: 'CBSE Results Day (May 25)', potential: 'High', idea: '"Results day breakfast tradition — bring your marksheet, get a complimentary filter coffee! ☕🎓"' },
-      { trigger: 'Pre-Monsoon Rain (May 18)', potential: 'Very High', idea: '"Rainy morning? That\'s peak Aaha weather ☔ Hot idly + sambar + filter coffee = the perfect rainy day breakfast"' },
+      { trigger: 'Pre-Monsoon Rain (May 18)', potential: 'Very High', idea: '"Rainy morning? That\'s peak Amaha weather ☔ Hot idly + sambar + filter coffee = the perfect rainy day breakfast"' },
     ],
     roiProjection: {
       currentMonthlyReach: 38400,
@@ -517,7 +517,7 @@ export const viralVideos = {
       likes: '198K',
       daysAgo: 12,
       relevance: 'Idly & Dosa are your flagship — this is the top-performing format for your exact food category',
-      lesson: 'Slow-motion ghee pour on soft idly gets millions of views. Film this every morning at Aaha.',
+      lesson: 'Slow-motion ghee pour on soft idly gets millions of views. Film this every morning at Amaha.',
       category: 'South Indian Breakfast',
       trending: true,
     },
@@ -530,8 +530,8 @@ export const viralVideos = {
       views: '3.4M',
       likes: '56K',
       daysAgo: 5,
-      relevance: 'Morning rush B-roll from a Hyd breakfast spot — identical setting to Aaha. 3M+ views.',
-      lesson: '"POV: 7am" kitchen prep + customers is the format getting 2-5M views. Film Aaha\'s opening every day.',
+      relevance: 'Morning rush B-roll from a Hyd breakfast spot — identical setting to Amaha. 3M+ views.',
+      lesson: '"POV: 7am" kitchen prep + customers is the format getting 2-5M views. Film Amaha\'s opening every day.',
       category: 'Morning Rush',
       trending: true,
     },
@@ -545,7 +545,7 @@ export const viralVideos = {
       likes: '34K',
       daysAgo: 18,
       relevance: 'Local Hyderabad food creator getting 2M views — proof this format works in your city',
-      lesson: 'A single creator collab can drive footfall for months. One micro-influencer visit to Aaha = this result.',
+      lesson: 'A single creator collab can drive footfall for months. One micro-influencer visit to Amaha = this result.',
       category: 'Hyderabad Food',
       trending: false,
     },

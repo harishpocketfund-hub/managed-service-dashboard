@@ -1,4 +1,4 @@
-export type RestaurantId = 'ishtaa' | 'aaha'
+﻿export type RestaurantId = 'ishtaa' | 'aaha'
 
 export const auditData = {
   ishtaa: {
@@ -170,7 +170,7 @@ export const auditData = {
 
   aaha: {
     handle: '@aahafoodvillage',
-    name: 'Aaha Food Village',
+    name: 'Amaha Food Village',
     auditDate: 'May 2026',
     profileScore: 54,
     scoreBreakdown: [
@@ -300,7 +300,7 @@ export const auditData = {
         theme: 'Get people talking',
         tasks: [
           'Reshare every tagged post / customer mention in stories',
-          'Post "7am at Aaha" POV Reel — first-person morning experience',
+          'Post "7am at Amaha" POV Reel — first-person morning experience',
           'Tag local Hyderabad food bloggers in comments (collaboration invite)',
           'Run "Bring 3 friends" special — promote via stories',
         ],
@@ -322,7 +322,7 @@ export const auditData = {
     roiStats: [
       { stat: '74%', label: 'of diners check social media before visiting a restaurant' },
       { stat: '47%', label: 'use Instagram specifically to discover where to eat' },
-      { stat: '140%', label: 'growth in Swiggy breakfast orders in Manikonda — Aaha is missing this' },
+      { stat: '140%', label: 'growth in Swiggy breakfast orders in Manikonda — Amaha is missing this' },
       { stat: '3.2x', label: 'higher conversion rate from social media vs walk-in discovery' },
     ],
     projection: [
